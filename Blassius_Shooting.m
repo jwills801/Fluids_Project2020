@@ -53,4 +53,4 @@ while flag == 0
 end
         
 plot(n,f)
-    
+plot(n,f_dot)
