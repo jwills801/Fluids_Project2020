@@ -5,8 +5,8 @@ clear
  % boundary condition is met
 
 h = .005; 
-nfinal = 7;
-tol = .01;
+nfinal = 10;
+tol = .0001;
 itermax = 100000;
 n = 1:h:nfinal;
 N = length(n);
@@ -17,7 +17,7 @@ f_dddot = NaN(1,N-1);
  
 f(1) = 0;
 f_dot(1) = 0;
-f_ddot(1) = 1;
+f_ddot(1) = 0;
  
  
 flag = 0;
@@ -51,6 +51,6 @@ while flag == 0
     end
     
 end
-        
+f_ddot(1) % should be .332        
 plot(n,f)
 plot(n,f_dot)
