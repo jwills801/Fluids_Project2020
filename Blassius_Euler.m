@@ -1,3 +1,4 @@
+%% Euler's methos
 %% The goal here is to solve blassius with a shooting method
  % - guess f''(0) and 
 clear

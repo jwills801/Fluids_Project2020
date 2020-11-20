@@ -4,9 +4,9 @@
 %% u'' - pu' -ru = q
 clear
 % I made up these functions
-r = @(x) -x;
+r = @(x) -sin(3*x)^2;
 p = @(x) 1/x^2;
-q = @(x) sin(x);
+q = @(x) sin(2*x);
 
 
 % define mesh
