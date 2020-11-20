@@ -5,17 +5,17 @@ clear
  % It is a inititial Value problem that we do over and over until the
  % boundary condition is met
 
-h = .5; 
-nfinal = 10;
+h = .005; 
+nfinal = 7;
 tol = .001;
-itermax = 200;
-n = 1:h:nfinal;
+itermax = 2000;
+n = 0:h:nfinal;
 N = length(n);
  
 f_(1) = 0;
 f_dot(1) = 0;
 f_ddot(1) = 0;
-f = NaN(N,3);
+f = NaN(N,3); % f = [f_ f_dot f_ddot]
 
 % Write an expression for the derivative of f
 % f1prime = f2
@@ -42,9 +42,9 @@ while flag == 0
         flag = 1;
         'tolerance met'
     elseif error1 > 0 
-        f_ddot(1) = f_ddot(1) - .1;
+        f_ddot(1) = f_ddot(1) - .001;
     elseif error1 < 0
-        f_ddot(1) = f_ddot(1) + .1;
+        f_ddot(1) = f_ddot(1) + .001;
     end
     counter = counter + 1;
     if counter > itermax
@@ -53,5 +53,5 @@ while flag == 0
     end
     
 end
-f(end,3) % should be .332
+f(1,3) % should be .332
 plot(n,f(:,2))
