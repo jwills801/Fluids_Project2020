@@ -9,8 +9,8 @@ h = .005;
 nfinal = 10;
 tol = .0001;
 itermax = 100000;
-n = 0:h:nfinal;
-N = length(n);
+eta = 0:h:nfinal;
+N = length(eta);
 f = NaN(1,N);
 f_dot = f;
 f_ddot = f;
@@ -53,5 +53,5 @@ while flag == 0
     
 end
 f_ddot(1) % should be .332        
-plot(n,f)
-plot(n,f_dot)
+plot(eta,f)
+plot(eta,f_dot)

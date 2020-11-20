@@ -9,8 +9,8 @@ h = .005;
 nfinal = 7;
 tol = .001;
 itermax = 2000;
-n = 0:h:nfinal;
-N = length(n);
+eta = 0:h:nfinal;
+N = length(eta);
  
 f_(1) = 0;
 f_dot(1) = 0;
@@ -27,10 +27,10 @@ counter = 0;
 while flag == 0
     for i = 1:N-1;
        f(1,:) = [f_(1) f_dot(1) f_ddot(1)];
-       k1 = func(f(i,:),n(i));
-       k2 = func(f(i,:)+h*k1/2,n(i)+h/2);
-       k3 = func(f(i,:)+h*k2/2,n(i)+h/2);
-       k4 = func(f(i,:)+h*k3,n(i)+h);
+       k1 = func(f(i,:),eta(i));
+       k2 = func(f(i,:)+h*k1/2,eta(i)+h/2);
+       k3 = func(f(i,:)+h*k2/2,eta(i)+h/2);
+       k4 = func(f(i,:)+h*k3,eta(i)+h);
        f(i+1,:) = f(i,:) + h/6*(k1+2*k2+2*k3+k4);
     end
     
@@ -54,4 +54,4 @@ while flag == 0
     
 end
 f(1,3) % should be .332
-plot(n,f(:,2))
+plot(eta,f(:,2))
