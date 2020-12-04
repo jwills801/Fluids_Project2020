@@ -53,5 +53,4 @@ while flag == 0
     end
     
 end
-f(1,3) % should be .332
-plot(eta,f(:,2))
+f(1,3); % should be .332
